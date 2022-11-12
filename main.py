@@ -241,14 +241,14 @@ async def ws_random_str(websocket: WebSocket):
             await websocket.close()
 
 
-@app.get("/recieve_text")
+@app.get("/receive_text")
 async def get():
-    with open(os.path.join("templates", "recieve_text.html"), mode="r", encoding="utf-8") as f:
+    with open(os.path.join("templates", "receive_text.html"), mode="r", encoding="utf-8") as f:
         html = f.read()
     return HTMLResponse(html)
 
 
-@app.websocket("/ws/recieve_text")
+@app.websocket("/ws/receive_text")
 async def ws_smile(websocket: WebSocket):
     await websocket.accept()
     while True:
